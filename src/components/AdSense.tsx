@@ -30,7 +30,9 @@ export default function AdSense({
     }
   }, []);
 
-  if (!process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID) {
+  const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-7529069132633488';
+  
+  if (!clientId) {
     return null;
   }
 
@@ -42,7 +44,7 @@ export default function AdSense({
           display: 'block',
           ...style
         }}
-        data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}
+        data-ad-client={clientId}
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive="true"
