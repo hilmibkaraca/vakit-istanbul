@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://namaz.vakit.istanbul/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Specific rules for different bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Disallow admin and api routes (if any)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /sw.js
+
+# Allow manifest and icons for PWA
+Allow: /manifest.json
+Allow: /icons/
