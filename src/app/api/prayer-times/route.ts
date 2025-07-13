@@ -24,7 +24,42 @@ async function fetchPrayerTimes(district: string = 'ISTANBUL'): Promise<PrayerTi
   
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      // Primary API
+      // Diyanet İşleri Başkanlığı resmi API
+      const today = format(new Date(), 'yyyy-MM-dd');
+      const response = await axios.get(`https://api.diyanet.gov.tr/PrayerTime/PrayerTimesDaily`, {
+        params: {
+          districtId: getDistrictId(district),
+          date: today
+        },
+        timeout: 8000,
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'VakitIstanbul/1.0'
+        }
+      });
+
+      if (response.data && response.data.length > 0) {
+        const data = response.data[0];
+        return {
+          date: today,
+          hijriDate: data.HijriDate || format(new Date(), 'd MMMM yyyy', { locale: tr }),
+          times: {
+            fajr: data.Fajr,
+            sunrise: data.Sunrise,
+            dhuhr: data.Dhuhr,
+            asr: data.Asr,
+            maghrib: data.Maghrib,
+            isha: data.Isha
+          },
+          district: data.District || district
+        };
+      }
+    } catch (error) {
+      console.warn(`Diyanet API attempt ${attempt} failed:`, error);
+    }
+
+    try {
+      // Ezanvakti.herokuapp.com fallback
       const response = await axios.get(`https://ezanvakti.herokuapp.com/vakitler`, {
         params: { sehir: district.toLowerCase() },
         timeout: 5000
@@ -47,43 +82,61 @@ async function fetchPrayerTimes(district: string = 'ISTANBUL'): Promise<PrayerTi
         };
       }
     } catch (error) {
-      console.warn(`Prayer times API attempt ${attempt} failed:`, error);
-      
-      if (attempt < maxRetries) {
-        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
-        continue;
-      }
+      console.warn(`Ezanvakti API attempt ${attempt} failed:`, error);
     }
 
-    try {
-      // Fallback API
-      const fallbackResponse = await axios.get('https://api.pray.zone/v2/times/today.json', {
-        params: { city: 'istanbul' },
-        timeout: 5000
-      });
-
-      if (fallbackResponse.data && fallbackResponse.data.results) {
-        const data = fallbackResponse.data.results.datetime[0].times;
-        return {
-          date: format(new Date(), 'yyyy-MM-dd'),
-          hijriDate: format(new Date(), 'd MMMM yyyy', { locale: tr }),
-          times: {
-            fajr: data.Fajr,
-            sunrise: data.Sunrise,
-            dhuhr: data.Dhuhr,
-            asr: data.Asr,
-            maghrib: data.Maghrib,
-            isha: data.Isha
-          },
-          district: district
-        };
-      }
-    } catch (fallbackError) {
-      console.warn(`Fallback API attempt ${attempt} failed:`, fallbackError);
+    if (attempt < maxRetries) {
+      await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
     }
   }
 
   return STATIC_FALLBACK;
+}
+
+function getDistrictId(district: string): string {
+  const districtIds: { [key: string]: string } = {
+    'ISTANBUL': '9541',
+    'ADALAR': '9478',
+    'ARNAVUTKOY': '9479',
+    'ATASEHIR': '9480',
+    'AVCILAR': '9481',
+    'BAGCILAR': '9482',
+    'BAHCELIEVLER': '9483',
+    'BAKIRKOY': '9484',
+    'BASAKSEHIR': '9485',
+    'BAYRAMPASA': '9486',
+    'BESIKTAS': '9487',
+    'BEYKOZ': '9488',
+    'BEYLIKDUZU': '9489',
+    'BEYOGLU': '9490',
+    'BUYUKCEKMECE': '9491',
+    'CATALCA': '9492',
+    'CEKMECE': '9493',
+    'ESENLER': '9494',
+    'ESENYURT': '9495',
+    'EYUPSULTAN': '9496',
+    'FATIH': '9497',
+    'GAZIOSMANPASA': '9498',
+    'GUNGOREN': '9499',
+    'KADIKOY': '9500',
+    'KAGITHANE': '9501',
+    'KARTAL': '9502',
+    'KUCUKCEKMECE': '9503',
+    'MALTEPE': '9504',
+    'PENDIK': '9505',
+    'SANCAKTEPE': '9506',
+    'SARIYER': '9507',
+    'SILIVRI': '9508',
+    'SISLI': '9509',
+    'SULTANGAZI': '9510',
+    'SULTANBEYLI': '9511',
+    'TUZLA': '9512',
+    'UMRANIYE': '9513',
+    'USKUDAR': '9514',
+    'ZEYTINBURNU': '9515'
+  };
+  
+  return districtIds[district.toUpperCase()] || '9541'; // Default to Istanbul
 }
 
 export async function GET(request: NextRequest) {
