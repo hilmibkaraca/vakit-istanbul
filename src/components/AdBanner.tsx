@@ -39,6 +39,7 @@ export default function AdBanner({
     };
 
     // Delay to ensure script is loaded
+    // eslint-disable-next-line prefer-const
     timeoutId = setTimeout(checkAdBlock, 1000);
 
     // Fallback check for ad blockers
