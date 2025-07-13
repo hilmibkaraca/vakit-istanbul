@@ -267,6 +267,32 @@ export default function Home() {
             <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">İmsakiye</span>
           </a>
         </div>
+
+        {/* Bilgi Bölümü */}
+        <div className="mt-12 max-w-4xl mx-auto">
+          <a 
+            href="/namaz-vakitleri-nasil-belirlenir" 
+            className="block p-6 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200 group"
+          >
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-gold-500/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-gold-500/30 transition-colors">
+                <span className="text-2xl text-gold-600 dark:text-gold-400">📖</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors">
+                  Namaz Vakitleri Nasıl Belirlenir?
+                </h3>
+                <p className="text-sm text-islamic-600 dark:text-islamic-300 mt-1 leading-relaxed">
+                  İslam dininde namaz vakitlerinin tarihçesi, hesaplama yöntemleri ve farklı kurumların yaklaşımları hakkında detaylı bilgi edinin.
+                </p>
+                <div className="flex items-center mt-3 text-gold-600 dark:text-gold-400 text-sm">
+                  <span>Detayları incele</span>
+                  <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
       </main>
 
       {/* Footer */}
@@ -283,6 +309,9 @@ export default function Home() {
               İstanbul namaz vakitleri, ezan saatleri ve İslami takvim
             </p>
             <div className="flex justify-center space-x-6 text-sm">
+              <a href="/namaz-vakitleri-nasil-belirlenir" className="text-islamic-600 dark:text-islamic-400 hover:text-islamic-800 dark:hover:text-islamic-200 transition-colors">
+                Namaz Vakitleri Bilgi
+              </a>
               <a href="/privacy" className="text-islamic-600 dark:text-islamic-400 hover:text-islamic-800 dark:hover:text-islamic-200 transition-colors">
                 Gizlilik
               </a>
