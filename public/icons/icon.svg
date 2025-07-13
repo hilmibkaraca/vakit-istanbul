@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#3a8f60" rx="80"/>
+  
+  <!-- Crescent Moon -->
+  <circle cx="200" cy="200" r="80" fill="#ffd60a" opacity="0.9"/>
+  <circle cx="220" cy="180" r="60" fill="#3a8f60"/>
+  
+  <!-- Star -->
+  <g transform="translate(320, 180) scale(1.5)">
+    <path d="M0,-20 L6,-6 L20,-6 L10,2 L15,16 L0,8 L-15,16 L-10,2 L-20,-6 L-6,-6 Z" 
+          fill="#ffd60a" opacity="0.9"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="256" y="380" text-anchor="middle" font-family="serif" font-size="48" 
+        font-weight="bold" fill="#ffd60a" opacity="0.8">
+    ﷽
+  </text>
+  
+  <!-- Bottom text -->
+  <text x="256" y="450" text-anchor="middle" font-family="sans-serif" font-size="24" 
+        font-weight="600" fill="#ffffff" opacity="0.9">
+    Vakit İstanbul
+  </text>
+</svg>
