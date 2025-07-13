@@ -1,17 +1,25 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://vakit.istanbul/sitemap.xml
+# Google AdSense Bot
+User-agent: Mediapartners-Google
+Allow: /
 
-# Crawl delay
-Crawl-delay: 1
-
-# Specific rules for different bots
+# Google Crawlers
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# Other Bots
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
@@ -22,12 +30,15 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-# Disallow admin and api routes (if any)
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
-Disallow: /sw.js
+# Sitemap
+Sitemap: https://vakit.istanbul/sitemap.xml
 
-# Allow manifest and icons for PWA
+# Disallow only specific paths
+Disallow: /admin/
+Disallow: /_next/webpack-hmr
+
+# Allow important files
+Allow: /ads.txt
 Allow: /manifest.json
 Allow: /icons/
+Allow: /api/prayer-times*
