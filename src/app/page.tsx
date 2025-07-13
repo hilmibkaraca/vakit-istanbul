@@ -5,6 +5,8 @@ import { format } from 'date-fns';
 import { tr } from 'date-fns/locale';
 import { PrayerTimes } from '@/types';
 import { ISTANBUL_DISTRICTS, PRAYER_NAMES, PRAYER_ICONS } from '@/lib/constants';
+import ThemeToggle from '@/components/ThemeToggle';
+import DistrictSelector from '@/components/DistrictSelector';
 
 export default function Home() {
   const [prayerTimes, setPrayerTimes] = useState<PrayerTimes | null>(null);
@@ -104,72 +106,82 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-emerald-500"></div>
+      <div className="min-h-screen islamic-pattern flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 mx-auto mb-4 border-4 border-islamic-300 border-t-islamic-600 rounded-full animate-spin"></div>
+          <p className="text-islamic-700 dark:text-islamic-300 font-medium">Vakitler yükleniyor...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-gray-900 dark:to-emerald-900">
+    <div className="min-h-screen islamic-pattern">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
-              Vakit İstanbul
-            </h1>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
-              {format(currentTime, 'dd MMMM yyyy, EEEE', { locale: tr })}
-            </p>
-          </div>
-          
-          <select
-            value={selectedDistrict}
-            onChange={(e) => handleDistrictChange(e.target.value)}
-            className="px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500"
-          >
-            {ISTANBUL_DISTRICTS.map((district) => (
-              <option key={district.id} value={district.code}>
-                {district.name}
-              </option>
-            ))}
-          </select>
-        </div>
+      <header className="sticky top-0 z-50 bg-white/90 dark:bg-islamic-950/90 backdrop-blur-md border-b border-islamic-200 dark:border-islamic-800">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo & Title */}
+            <div className="flex items-center space-x-4">
+              <div className="w-10 h-10 bg-islamic-gradient rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-islamic-800 dark:text-islamic-100">
+                  Vakit İstanbul
+                </h1>
+                <p className="text-sm text-islamic-600 dark:text-islamic-300">
+                  {format(currentTime, 'dd MMMM yyyy, EEEE', { locale: tr })}
+                </p>
+              </div>
+            </div>
 
-        {/* AdSense Banner */}
-        <div className="flex justify-center py-2">
-          <div className="w-full max-w-4xl">
-            <ins
-              className="adsbygoogle block"
-              style={{ display: 'block' }}
-              data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}
-              data-ad-slot="1234567890"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
+            {/* Controls */}
+            <div className="flex items-center space-x-3">
+              <DistrictSelector 
+                selectedDistrict={selectedDistrict}
+                onDistrictChange={handleDistrictChange}
+              />
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-8">
-        {/* Current Time & Active Prayer */}
-        <div className="text-center mb-8">
-          <div className="text-4xl font-mono font-bold text-gray-800 dark:text-white mb-2">
-            {format(currentTime, 'HH:mm:ss')}
+      <main className="max-w-6xl mx-auto px-4 py-8">
+        {/* Current Time & Next Prayer */}
+        <div className="text-center mb-12">
+          <div className="relative inline-block">
+            <div className="text-6xl font-mono font-bold text-islamic-800 dark:text-islamic-100 mb-4 tracking-wider">
+              {format(currentTime, 'HH:mm')}
+            </div>
+            <div className="absolute -top-2 -right-2 w-3 h-3 bg-gold-500 rounded-full animate-pulse-soft"></div>
           </div>
+          
           {activePrayer && (
-            <div className="text-lg text-emerald-600 dark:text-emerald-400">
-              Sonraki vakit: {PRAYER_NAMES.TR[activePrayer as keyof typeof PRAYER_NAMES.TR]} {' '}
-              ({getTimeRemaining(activePrayer)} kaldı)
+            <div className="mt-4 p-4 bg-white/60 dark:bg-islamic-900/60 backdrop-blur-sm rounded-2xl2 inline-block border border-islamic-200 dark:border-islamic-700">
+              <p className="text-islamic-600 dark:text-islamic-300 text-sm mb-1">Sonraki Vakit</p>
+              <div className="flex items-center justify-center space-x-3">
+                <span className="text-2xl">
+                  {PRAYER_ICONS[activePrayer as keyof typeof PRAYER_ICONS]}
+                </span>
+                <div>
+                  <p className="text-xl font-semibold text-islamic-800 dark:text-islamic-100">
+                    {PRAYER_NAMES.TR[activePrayer as keyof typeof PRAYER_NAMES.TR]}
+                  </p>
+                  <p className="text-gold-600 dark:text-gold-400 font-medium">
+                    {getTimeRemaining(activePrayer)} kaldı
+                  </p>
+                </div>
+              </div>
             </div>
           )}
         </div>
 
         {/* Prayer Times Grid */}
         {prayerTimes && (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
             {Object.entries(prayerTimes.times).map(([prayer, time]) => {
               const isActive = prayer === activePrayer;
               const timeRemaining = getTimeRemaining(prayer);
@@ -178,25 +190,45 @@ export default function Home() {
               return (
                 <div
                   key={prayer}
-                  className={`p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl ${
+                  className={`relative prayer-accent group transition-all duration-300 ${
                     isActive
-                      ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white transform scale-105'
+                      ? 'prayer-glow-active bg-gradient-to-br from-gold-100 to-gold-200 dark:from-gold-900/30 dark:to-gold-800/30 transform scale-105'
                       : isPassed
-                      ? 'bg-gray-100 dark:bg-gray-800 text-gray-500'
-                      : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
-                  }`}
+                      ? 'bg-sage-100/50 dark:bg-sage-900/30'
+                      : 'prayer-glow bg-white/80 dark:bg-islamic-900/50 hover:bg-islamic-50 dark:hover:bg-islamic-900/70'
+                  } rounded-xl2 p-6 backdrop-blur-sm border border-islamic-200 dark:border-islamic-700 cursor-pointer`}
                 >
                   <div className="text-center">
-                    <div className="text-3xl mb-2">
+                    <div className={`text-3xl mb-3 transition-transform group-hover:scale-110 ${
+                      isActive ? 'animate-pulse-soft' : ''
+                    }`}>
                       {PRAYER_ICONS[prayer as keyof typeof PRAYER_ICONS]}
                     </div>
-                    <h3 className="font-semibold text-lg mb-1">
+                    <h3 className={`font-semibold text-lg mb-2 ${
+                      isActive 
+                        ? 'text-gold-800 dark:text-gold-200' 
+                        : isPassed 
+                        ? 'text-sage-500 dark:text-sage-400'
+                        : 'text-islamic-800 dark:text-islamic-100'
+                    }`}>
                       {PRAYER_NAMES.TR[prayer as keyof typeof PRAYER_NAMES.TR]}
                     </h3>
-                    <div className="text-2xl font-mono font-bold mb-1">
+                    <div className={`text-2xl font-mono font-bold mb-2 ${
+                      isActive 
+                        ? 'text-gold-700 dark:text-gold-300' 
+                        : isPassed 
+                        ? 'text-sage-600 dark:text-sage-400'
+                        : 'text-islamic-700 dark:text-islamic-200'
+                    }`}>
                       {time}
                     </div>
-                    <div className="text-sm opacity-75">
+                    <div className={`text-sm ${
+                      isActive 
+                        ? 'text-gold-600 dark:text-gold-400 font-medium' 
+                        : isPassed 
+                        ? 'text-sage-500 dark:text-sage-500'
+                        : 'text-islamic-500 dark:text-islamic-400'
+                    }`}>
                       {timeRemaining}
                     </div>
                   </div>
@@ -206,66 +238,71 @@ export default function Home() {
           </div>
         )}
 
-        {/* AdSense Square */}
-        <div className="flex justify-center my-8">
-          <ins
-            className="adsbygoogle"
-            style={{ display: 'block', width: '336px', height: '280px' }}
-            data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}
-            data-ad-slot="0987654321"
-          ></ins>
-        </div>
-
-        {/* Hijri Date */}
+        {/* Hijri Date Card */}
         {prayerTimes && (
-          <div className="text-center mb-8">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md">
-              <h3 className="text-lg font-semibold mb-2">Hicri Tarih</h3>
-              <p className="text-emerald-600 dark:text-emerald-400 font-medium">
+          <div className="max-w-md mx-auto mb-8">
+            <div className="geometric-border bg-white/80 dark:bg-islamic-900/60 backdrop-blur-sm rounded-2xl2 p-6 text-center">
+              <div className="flex items-center justify-center mb-3">
+                <div className="w-8 h-8 bg-gold-500 crescent opacity-80"></div>
+              </div>
+              <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 mb-2">
+                Hicri Tarih
+              </h3>
+              <p className="text-gold-600 dark:text-gold-400 font-medium arabic-text text-lg">
                 {prayerTimes.hijriDate}
               </p>
             </div>
           </div>
         )}
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
+            <span className="text-2xl">🧭</span>
+            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Kıble Yönü</span>
+          </button>
+          
+          <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
+            <span className="text-2xl">📅</span>
+            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Aylık Takvim</span>
+          </button>
+          
+          <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
+            <span className="text-2xl">🔔</span>
+            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Bildirimler</span>
+          </button>
+          
+          <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
+            <span className="text-2xl">📱</span>
+            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Uygulamayı Yükle</span>
+          </button>
+        </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-12">
-        <div className="max-w-4xl mx-auto px-4 py-8">
-          {/* AdSense Footer Banner */}
-          <div className="flex justify-center mb-6">
-            <ins
-              className="adsbygoogle block"
-              style={{ display: 'block' }}
-              data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}
-              data-ad-slot="1122334455"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
-          </div>
-
-          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-            <button className="flex items-center space-x-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300">
-              <span>🧭</span>
-              <span>Kıble Yönü</span>
-            </button>
-            
-            <button className="flex items-center space-x-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300">
-              <span>📅</span>
-              <span>Aylık Takvim</span>
-            </button>
-            
-            <a href="/privacy" className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
-              Gizlilik
-            </a>
-            
-            <a href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
-              İletişim
-            </a>
-          </div>
-          
-          <div className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
-            © 2024 Vakit İstanbul. Tüm hakları saklıdır.
+      <footer className="mt-16 border-t border-islamic-200 dark:border-islamic-700 bg-white/60 dark:bg-islamic-950/60 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-4 py-8">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
+              <span className="text-lg font-semibold text-islamic-800 dark:text-islamic-100">
+                Vakit İstanbul
+              </span>
+            </div>
+            <p className="text-sm text-islamic-600 dark:text-islamic-400 mb-4">
+              İstanbul namaz vakitleri, ezan saatleri ve İslami takvim
+            </p>
+            <div className="flex justify-center space-x-6 text-sm">
+              <a href="/privacy" className="text-islamic-600 dark:text-islamic-400 hover:text-islamic-800 dark:hover:text-islamic-200 transition-colors">
+                Gizlilik
+              </a>
+              <a href="/contact" className="text-islamic-600 dark:text-islamic-400 hover:text-islamic-800 dark:hover:text-islamic-200 transition-colors">
+                İletişim
+              </a>
+            </div>
+            <div className="text-xs text-islamic-500 dark:text-islamic-500 mt-4">
+              © 2024 Vakit İstanbul. Tüm hakları saklıdır.
+            </div>
           </div>
         </div>
       </footer>

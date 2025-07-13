@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { ISTANBUL_DISTRICTS } from '@/lib/constants';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://namaz.vakit.istanbul';
+  const baseUrl = 'https://vakit.istanbul';
   
   // Static pages
   const staticPages = [

@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     maximumScale: 5,
   },
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#10b981" },
-    { media: "(prefers-color-scheme: dark)", color: "#059669" }
+    { media: "(prefers-color-scheme: light)", color: "#3a8f60" },
+    { media: "(prefers-color-scheme: dark)", color: "#2d734c" }
   ],
   manifest: "/manifest.json",
   appleWebApp: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vakit İstanbul - Namaz Vakitleri",
     description: "İstanbul namaz vakitleri, ezan saatleri ve kıble yönü",
-    url: "https://namaz.vakit.istanbul",
+    url: "https://vakit.istanbul",
     siteName: "Vakit İstanbul",
     images: [
       {
@@ -102,7 +102,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Vakit İstanbul",
-              url: "https://namaz.vakit.istanbul",
+              url: "https://vakit.istanbul",
               description: "İstanbul namaz vakitleri, ezan saatleri ve kıble yönü",
               inLanguage: "tr-TR",
               author: {

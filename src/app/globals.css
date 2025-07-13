@@ -1,27 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #1b3d2c;
+  --islamic-primary: #3a8f60;
+  --islamic-secondary: #ffd60a;
+  --sage-light: #f6f7f5;
+  --sage-dark: #383c31;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0e1512;
+    --foreground: #f0f9f3;
   }
+}
+
+.dark {
+  --background: #0e1512;
+  --foreground: #f0f9f3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'system-ui', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Islamic geometric pattern background */
+.islamic-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(58, 143, 96, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 214, 10, 0.02) 0%, transparent 50%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+}
+
+/* Prayer card geometric accent */
+.prayer-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--islamic-primary) 0%, 
+    var(--islamic-secondary) 100%);
+  border-radius: 4px 4px 0 0;
+}
+
+/* Islamic star pattern */
+.islamic-star {
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+}
+
+/* Crescent moon shape */
+.crescent {
+  border-radius: 50%;
+  box-shadow: inset 8px 0 0 0 currentColor;
+}
+
+/* Arabic text styling */
+.arabic-text {
+  font-family: 'Amiri', serif;
+  font-weight: 400;
+  text-align: right;
+  direction: rtl;
+}
+
+/* Prayer time glow effect */
+.prayer-glow {
+  box-shadow: 
+    0 0 20px rgba(58, 143, 96, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.prayer-glow-active {
+  box-shadow: 
+    0 0 30px rgba(255, 214, 10, 0.2),
+    0 4px 20px rgba(58, 143, 96, 0.1);
+}
+
+/* Subtle geometric borders */
+.geometric-border {
+  position: relative;
+}
+
+.geometric-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(45deg, 
+    rgba(58, 143, 96, 0.2), 
+    rgba(255, 214, 10, 0.2), 
+    rgba(58, 143, 96, 0.2));
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(58, 143, 96, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(58, 143, 96, 0.5);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--islamic-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(58, 143, 96, 0.2);
+  color: var(--foreground);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .bg-islamic-gradient {
+    background: linear-gradient(135deg, 
+      rgba(58, 143, 96, 0.05) 0%, 
+      rgba(255, 214, 10, 0.05) 100%);
+  }
+  
+  .border-islamic {
+    border-color: rgba(58, 143, 96, 0.2);
+  }
+  
+  .text-islamic {
+    color: var(--islamic-primary);
+  }
+  
+  .text-gold {
+    color: var(--islamic-secondary);
   }
 }
