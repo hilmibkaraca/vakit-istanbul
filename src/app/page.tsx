@@ -256,26 +256,16 @@ export default function Home() {
         )}
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
           <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
             <span className="text-2xl">🧭</span>
             <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Kıble Yönü</span>
           </button>
           
-          <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
+          <a href="/imsakiye" className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
             <span className="text-2xl">📅</span>
-            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Aylık Takvim</span>
-          </button>
-          
-          <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
-            <span className="text-2xl">🔔</span>
-            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Bildirimler</span>
-          </button>
-          
-          <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
-            <span className="text-2xl">📱</span>
-            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Uygulamayı Yükle</span>
-          </button>
+            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">İmsakiye</span>
+          </a>
         </div>
       </main>
 
