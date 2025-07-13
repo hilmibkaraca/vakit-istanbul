@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { format } from 'date-fns';
 import { tr } from 'date-fns/locale';
 import { PrayerTimes } from '@/types';
-import { ISTANBUL_DISTRICTS, PRAYER_NAMES, PRAYER_ICONS } from '@/lib/constants';
+import { PRAYER_NAMES, PRAYER_ICONS } from '@/lib/constants';
 import ThemeToggle from '@/components/ThemeToggle';
 import DistrictSelector from '@/components/DistrictSelector';
 
