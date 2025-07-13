@@ -19,49 +19,86 @@ const STATIC_FALLBACK: PrayerTimes = {
   district: 'İstanbul'
 };
 
-async function fetchPrayerTimes(district: string = 'ISTANBUL'): Promise<PrayerTimes> {
+async function fetchPrayerTimes(): Promise<PrayerTimes> {
   const maxRetries = 3;
   
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      // Diyanet İşleri Başkanlığı resmi API
-      const today = format(new Date(), 'yyyy-MM-dd');
-      const response = await axios.get(`https://api.diyanet.gov.tr/PrayerTime/PrayerTimesDaily`, {
+      // API 1: Aladhan API - İslamic calculation with Diyanet method
+      const lat = 41.0082;
+      const lng = 28.9784;
+      const today = Math.floor(Date.now() / 1000);
+      
+      const response = await axios.get(`https://api.aladhan.com/v1/timings/${today}`, {
         params: {
-          districtId: getDistrictId(district),
-          date: today
+          latitude: lat,
+          longitude: lng,
+          method: 13, // Diyanet method
+          tune: '0,0,0,0,0,0,0,0,0' // No adjustments
         },
-        timeout: 8000,
-        headers: {
-          'Accept': 'application/json',
-          'User-Agent': 'VakitIstanbul/1.0'
-        }
+        timeout: 8000
       });
 
-      if (response.data && response.data.length > 0) {
-        const data = response.data[0];
+      if (response.data && response.data.data && response.data.data.timings) {
+        const timings = response.data.data.timings;
+        const hijriDate = response.data.data.date.hijri;
+        
         return {
-          date: today,
-          hijriDate: data.HijriDate || format(new Date(), 'd MMMM yyyy', { locale: tr }),
+          date: format(new Date(), 'yyyy-MM-dd'),
+          hijriDate: `${hijriDate.day} ${hijriDate.month.ar} ${hijriDate.year}`,
           times: {
-            fajr: data.Fajr,
-            sunrise: data.Sunrise,
-            dhuhr: data.Dhuhr,
-            asr: data.Asr,
-            maghrib: data.Maghrib,
-            isha: data.Isha
+            fajr: timings.Fajr,
+            sunrise: timings.Sunrise,
+            dhuhr: timings.Dhuhr,
+            asr: timings.Asr,
+            maghrib: timings.Maghrib,
+            isha: timings.Isha
           },
-          district: data.District || district
+          district: 'İstanbul'
         };
       }
     } catch (error) {
-      console.warn(`Diyanet API attempt ${attempt} failed:`, error);
+      console.warn(`Aladhan API attempt ${attempt} failed:`, error);
     }
 
     try {
-      // Ezanvakti.herokuapp.com fallback
+      // API 2: Prayer Times with city name (alternative endpoint)
+      const response = await axios.get('https://api.aladhan.com/v1/timingsByCity', {
+        params: {
+          city: 'Istanbul',
+          country: 'Turkey',
+          method: 13, // Diyanet method
+          tune: '0,0,0,0,0,0,0,0,0'
+        },
+        timeout: 5000
+      });
+
+      if (response.data && response.data.data && response.data.data.timings) {
+        const timings = response.data.data.timings;
+        const hijriDate = response.data.data.date.hijri;
+        
+        return {
+          date: format(new Date(), 'yyyy-MM-dd'),
+          hijriDate: `${hijriDate.day} ${hijriDate.month.ar} ${hijriDate.year}`,
+          times: {
+            fajr: timings.Fajr,
+            sunrise: timings.Sunrise,
+            dhuhr: timings.Dhuhr,
+            asr: timings.Asr,
+            maghrib: timings.Maghrib,
+            isha: timings.Isha
+          },
+          district: 'İstanbul'
+        };
+      }
+    } catch (error) {
+      console.warn(`Aladhan City API attempt ${attempt} failed:`, error);
+    }
+
+    try {
+      // API 3: Ezanvakti fallback
       const response = await axios.get(`https://ezanvakti.herokuapp.com/vakitler`, {
-        params: { sehir: district.toLowerCase() },
+        params: { sehir: 'istanbul' },
         timeout: 5000
       });
 
@@ -78,7 +115,7 @@ async function fetchPrayerTimes(district: string = 'ISTANBUL'): Promise<PrayerTi
             maghrib: data.Aksam,
             isha: data.Yatsi
           },
-          district: data.Sehir || district
+          district: data.Sehir || 'İstanbul'
         };
       }
     } catch (error) {
@@ -93,58 +130,16 @@ async function fetchPrayerTimes(district: string = 'ISTANBUL'): Promise<PrayerTi
   return STATIC_FALLBACK;
 }
 
-function getDistrictId(district: string): string {
-  const districtIds: { [key: string]: string } = {
-    'ISTANBUL': '9541',
-    'ADALAR': '9478',
-    'ARNAVUTKOY': '9479',
-    'ATASEHIR': '9480',
-    'AVCILAR': '9481',
-    'BAGCILAR': '9482',
-    'BAHCELIEVLER': '9483',
-    'BAKIRKOY': '9484',
-    'BASAKSEHIR': '9485',
-    'BAYRAMPASA': '9486',
-    'BESIKTAS': '9487',
-    'BEYKOZ': '9488',
-    'BEYLIKDUZU': '9489',
-    'BEYOGLU': '9490',
-    'BUYUKCEKMECE': '9491',
-    'CATALCA': '9492',
-    'CEKMECE': '9493',
-    'ESENLER': '9494',
-    'ESENYURT': '9495',
-    'EYUPSULTAN': '9496',
-    'FATIH': '9497',
-    'GAZIOSMANPASA': '9498',
-    'GUNGOREN': '9499',
-    'KADIKOY': '9500',
-    'KAGITHANE': '9501',
-    'KARTAL': '9502',
-    'KUCUKCEKMECE': '9503',
-    'MALTEPE': '9504',
-    'PENDIK': '9505',
-    'SANCAKTEPE': '9506',
-    'SARIYER': '9507',
-    'SILIVRI': '9508',
-    'SISLI': '9509',
-    'SULTANGAZI': '9510',
-    'SULTANBEYLI': '9511',
-    'TUZLA': '9512',
-    'UMRANIYE': '9513',
-    'USKUDAR': '9514',
-    'ZEYTINBURNU': '9515'
-  };
-  
-  return districtIds[district.toUpperCase()] || '9541'; // Default to Istanbul
-}
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const district = searchParams.get('district') || 'ISTANBUL';
     
-    const prayerTimes = await fetchPrayerTimes(district);
+    // For now, we'll use Istanbul coordinates regardless of district
+    // In future, we can add district-specific coordinates
+    const prayerTimes = await fetchPrayerTimes();
     
     const response = NextResponse.json({
       data: prayerTimes,
