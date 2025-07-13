@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
+import { ResponsiveAd, SquareAd } from '@/components/AdSense';
 
 export const metadata: Metadata = {
   title: 'Modern Astronomik Cihazlar ile Namaz Vakitleri Belirleme | Vakit İstanbul',
@@ -50,7 +51,9 @@ export default function ModernCihazlarPage() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
-        <article className="prose prose-islamic dark:prose-invert max-w-none">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Article Content */}
+          <article className="prose prose-islamic dark:prose-invert max-w-none lg:col-span-3">
           {/* Hero Section */}
           <div className="bg-white/80 dark:bg-islamic-900/60 backdrop-blur-sm rounded-2xl2 p-8 mb-8 border border-islamic-200 dark:border-islamic-700">
             <h1 className="text-3xl md:text-4xl font-bold text-islamic-800 dark:text-islamic-100 mb-4">
@@ -87,6 +90,10 @@ export default function ModernCihazlarPage() {
 
           {/* Content Sections */}
           <section className="space-y-8">
+            {/* Mid-Article Ad */}
+            <div className="my-8 flex justify-center">
+              <ResponsiveAd adSlot="2222333344" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+            </div>
             {/* Giriş */}
             <div className="bg-white/60 dark:bg-islamic-900/40 p-6 rounded-xl2 backdrop-blur-sm border border-islamic-200 dark:border-islamic-700">
               <p className="text-islamic-700 dark:text-islamic-200 leading-relaxed">
@@ -553,6 +560,18 @@ export default function ModernCihazlarPage() {
             </div>
           </section>
         </article>
+
+        {/* Sidebar with Square Ads */}
+        <aside className="lg:col-span-1 space-y-6">
+          <div className="sticky top-24">
+            <SquareAd adSlot="6666777788" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+          </div>
+          
+          <div className="mt-6">
+            <SquareAd adSlot="9999000011" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+          </div>
+        </aside>
+      </div>
       </main>
 
       {/* Footer */}

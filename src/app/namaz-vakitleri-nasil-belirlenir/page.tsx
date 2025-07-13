@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
+import { ResponsiveAd, SquareAd } from '@/components/AdSense';
 
 export const metadata: Metadata = {
   title: 'Namaz Vakitleri Nasıl Belirlenir? | Vakit İstanbul',
@@ -50,7 +51,9 @@ export default function NamazVakitleriBilgiPage() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
-        <article className="prose prose-islamic dark:prose-invert max-w-none">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Article Content */}
+          <article className="prose prose-islamic dark:prose-invert max-w-none lg:col-span-3">
           {/* Hero Section */}
           <div className="bg-white/80 dark:bg-islamic-900/60 backdrop-blur-sm rounded-2xl2 p-8 mb-8 border border-islamic-200 dark:border-islamic-700">
             <h1 className="text-3xl md:text-4xl font-bold text-islamic-800 dark:text-islamic-100 mb-4">
@@ -246,6 +249,11 @@ export default function NamazVakitleriBilgiPage() {
               </div>
             </div>
 
+            {/* Mid-Article Ad */}
+            <div className="my-8 flex justify-center">
+              <ResponsiveAd adSlot="1111222233" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+            </div>
+
             {/* Kurumlar */}
             <div id="kurumlar" className="scroll-mt-20">
               <h2 className="text-2xl font-bold text-islamic-800 dark:text-islamic-100 mb-4 flex items-center">
@@ -370,6 +378,18 @@ export default function NamazVakitleriBilgiPage() {
             </div>
           </section>
         </article>
+
+        {/* Sidebar with Square Ads */}
+        <aside className="lg:col-span-1 space-y-6">
+          <div className="sticky top-24">
+            <SquareAd adSlot="4444555566" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+          </div>
+          
+          <div className="mt-6">
+            <SquareAd adSlot="7777888899" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+          </div>
+        </aside>
+      </div>
       </main>
 
       {/* Footer */}

@@ -7,6 +7,7 @@ import { PrayerTimes } from '@/types';
 import { PRAYER_NAMES, PRAYER_ICONS } from '@/lib/constants';
 import ThemeToggle from '@/components/ThemeToggle';
 import DistrictSelector from '@/components/DistrictSelector';
+import { BannerAd, ResponsiveAd } from '@/components/AdSense';
 
 export default function Home() {
   const [prayerTimes, setPrayerTimes] = useState<PrayerTimes | null>(null);
@@ -148,6 +149,13 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Header Banner Ad */}
+      <div className="max-w-6xl mx-auto px-4 py-2">
+        <div className="flex justify-center">
+          <BannerAd adSlot="1234567890" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
+        </div>
+      </div>
+
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-8">
         {/* Current Time & Next Prayer */}
@@ -268,6 +276,11 @@ export default function Home() {
           </a>
         </div>
 
+        {/* Mid-page Responsive Ad */}
+        <div className="my-12 flex justify-center">
+          <ResponsiveAd adSlot="0987654321" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+        </div>
+
         {/* Bilgi Bölümü */}
         <div className="mt-12 max-w-4xl mx-auto space-y-4">
           <a 
@@ -318,8 +331,15 @@ export default function Home() {
         </div>
       </main>
 
+      {/* Footer Banner Ad */}
+      <div className="max-w-6xl mx-auto px-4 py-4">
+        <div className="flex justify-center">
+          <BannerAd adSlot="5678901234" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
+        </div>
+      </div>
+
       {/* Footer */}
-      <footer className="mt-16 border-t border-islamic-200 dark:border-islamic-700 bg-white/60 dark:bg-islamic-950/60 backdrop-blur-sm">
+      <footer className="mt-8 border-t border-islamic-200 dark:border-islamic-700 bg-white/60 dark:bg-islamic-950/60 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
