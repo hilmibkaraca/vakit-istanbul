@@ -1,0 +1,136 @@
+# Page snapshot
+
+```yaml
+- main:
+  - heading "Vakit İstanbul" [level=1]
+  - paragraph: 14 Temmuz 2025, Pazartesi
+  - button "İstanbul":
+    - text: İstanbul
+    - img
+  - textbox "İlçe ara..."
+  - button "Adalar"
+  - button "Arnavutköy"
+  - button "Ataşehir"
+  - button "Avcılar"
+  - button "Bağcılar"
+  - button "Bahçelievler"
+  - button "Bakırköy"
+  - button "Başakşehir"
+  - button "Bayrampaşa"
+  - button "Beşiktaş"
+  - button "Beykoz"
+  - button "Beylikdüzü"
+  - button "Beyoğlu"
+  - button "Büyükçekmece"
+  - button "Çatalca"
+  - button "Çekmeköy"
+  - button "Esenler"
+  - button "Esenyurt"
+  - button "Eyüpsultan"
+  - button "Fatih"
+  - button "Gaziosmanpaşa"
+  - button "Güngören"
+  - button "Kadıköy"
+  - button "Kağıthane"
+  - button "Kartal"
+  - button "Küçükçekmece"
+  - button "Maltepe"
+  - button "Pendik"
+  - button "Sancaktepe"
+  - button "Sarıyer"
+  - button "Silivri"
+  - button "Sultanbeyli"
+  - button "Sultangazi"
+  - button "Şile"
+  - button "Şişli"
+  - button "Tuzla"
+  - button "Ümraniye"
+  - button "Üsküdar"
+  - button "Zeytinburnu"
+  - button "Sistem teması":
+    - img
+  - text: AdSense Placeholder (home-header-banner)
+  - main:
+    - text: 09:22
+    - paragraph: Sonraki Vakit
+    - text: 🌞
+    - paragraph: Öğle
+    - paragraph: 3s 52dk kaldı
+    - text: 🌅
+    - heading "İmsak" [level=3]
+    - text: 03:43 18s 20dk ☀️
+    - heading "Güneş" [level=3]
+    - text: 05:37 Geçti 🌞
+    - heading "Öğle" [level=3]
+    - text: 13:15 3s 52dk 🌤️
+    - heading "İkindi" [level=3]
+    - text: 17:14 7s 51dk 🌆
+    - heading "Akşam" [level=3]
+    - text: 20:43 11s 20dk 🌙
+    - heading "Yatsı" [level=3]
+    - text: 22:28 13s 5dk
+    - heading "Hicri Tarih" [level=3]
+    - paragraph: 19 مُحَرَّم 1447
+    - button "🧭 Kıble Yönü"
+    - link "📅 İmsakiye":
+      - /url: /imsakiye
+    - link "📖 Blog":
+      - /url: /blog
+    - heading "Namaz ve İbadet Rehberimiz" [level=2]
+    - paragraph: İslami ibadet hayatınızı kolaylaştıracak kapsamlı rehberler, güncel bilgiler ve pratik tavsiyeler
+    - link "🌅 Namaz Vakitleri Sabah Namazı Saat Kaçta? İstanbul'da sabah namazı vakitleri, tüm ilçeler için güncel saatler ve pratik öneriler.":
+      - /url: /blog/sabah-namazi-saat-kacta
+      - text: 🌅 Namaz Vakitleri
+      - heading "Sabah Namazı Saat Kaçta?" [level=3]
+      - paragraph: İstanbul'da sabah namazı vakitleri, tüm ilçeler için güncel saatler ve pratik öneriler.
+    - link "🕌 Cuma Namazı Cuma Namazı Rehberi İstanbul'da cuma namazı saatleri, popüler camiler ve bilinmesi gerekenler.":
+      - /url: /blog/cuma-namazi-vakti-istanbul
+      - text: 🕌 Cuma Namazı
+      - heading "Cuma Namazı Rehberi" [level=3]
+      - paragraph: İstanbul'da cuma namazı saatleri, popüler camiler ve bilinmesi gerekenler.
+    - link "⏰ Kaza Namazı Namaz Vakti Geçince Ne Yapılır? Kaza namazı nasıl kılınır, hangi durumlarda namaz kazaya kalır rehberi.":
+      - /url: /blog/namaz-vakti-gecince-ne-yapilir
+      - text: ⏰ Kaza Namazı
+      - heading "Namaz Vakti Geçince Ne Yapılır?" [level=3]
+      - paragraph: Kaza namazı nasıl kılınır, hangi durumlarda namaz kazaya kalır rehberi.
+    - link "🌙 Ramazan İftar Vakti Hesaplama 2025 2025 Ramazan ayı İstanbul iftar vakitleri, sahur saatleri ve oruç rehberi.":
+      - /url: /blog/iftar-vakti-hesaplama-2025
+      - text: 🌙 Ramazan
+      - heading "İftar Vakti Hesaplama 2025" [level=3]
+      - paragraph: 2025 Ramazan ayı İstanbul iftar vakitleri, sahur saatleri ve oruç rehberi.
+    - link "⚖️ Yasal Haklar İşte Namaz İzin Hakkınız Çalışanların namaz kılmak için izin hakları ve yasal düzenlemeler.":
+      - /url: /blog/iste-namaz-kilmak-icin-izin-hakkiniz
+      - text: ⚖️ Yasal Haklar
+      - heading "İşte Namaz İzin Hakkınız" [level=3]
+      - paragraph: Çalışanların namaz kılmak için izin hakları ve yasal düzenlemeler.
+    - link "✈️ Seyahat Yolculukta Namaz Rehberi Seferî namaz, birleştirme kuralları ve yolculuk halinde ibadet.":
+      - /url: /blog/yolculukta-namaz-rehberi
+      - text: ✈️ Seyahat
+      - heading "Yolculukta Namaz Rehberi" [level=3]
+      - paragraph: Seferî namaz, birleştirme kuralları ve yolculuk halinde ibadet.
+    - link "Tüm Blog Yazılarını Görüntüle →":
+      - /url: /blog
+    - text: AdSense Placeholder (home-mid-responsive)
+    - link "📖 Namaz Vakitleri Nasıl Belirlenir? İslam dininde namaz vakitlerinin tarihçesi, hesaplama yöntemleri ve farklı kurumların yaklaşımları hakkında detaylı bilgi edinin. Detayları incele →":
+      - /url: /namaz-vakitleri-nasil-belirlenir
+      - text: 📖
+      - heading "Namaz Vakitleri Nasıl Belirlenir?" [level=3]
+      - paragraph: İslam dininde namaz vakitlerinin tarihçesi, hesaplama yöntemleri ve farklı kurumların yaklaşımları hakkında detaylı bilgi edinin.
+      - text: Detayları incele →
+    - link "🔬 Modern Astronomik Cihazlar ile Namaz Vakitleri CCD dedektörleri, DSLR kameralar ve ASC sistemleri ile İslami ibadet vakitlerinin hassas belirlenmesi ve bilimsel gözlem yöntemleri. Bilimsel detaylar →":
+      - /url: /modern-cihazlar-ile-namaz-vakitleri
+      - text: 🔬
+      - heading "Modern Astronomik Cihazlar ile Namaz Vakitleri" [level=3]
+      - paragraph: CCD dedektörleri, DSLR kameralar ve ASC sistemleri ile İslami ibadet vakitlerinin hassas belirlenmesi ve bilimsel gözlem yöntemleri.
+      - text: Bilimsel detaylar →
+  - text: AdSense Placeholder (home-footer-banner) Vakit İstanbul
+  - paragraph: İstanbul namaz vakitleri, ezan saatleri ve İslami takvim
+  - link "Namaz Vakitleri Bilgi":
+    - /url: /namaz-vakitleri-nasil-belirlenir
+  - link "Gizlilik":
+    - /url: /privacy
+  - link "İletişim":
+    - /url: /contact
+  - text: © 2024 Vakit İstanbul. Tüm hakları saklıdır.
+- alert
+```

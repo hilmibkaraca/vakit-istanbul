@@ -7,19 +7,32 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "vercel --prod"
+    "deploy": "vercel --prod",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.3.5",
     "@types/gtag.js": "^0.0.20",
     "@vercel/analytics": "^1.5.0",
     "axios": "^1.10.0",
     "date-fns": "^4.1.0",
+    "gray-matter": "^4.0.3",
     "next": "14.2.30",
+    "next-mdx-remote": "^5.0.0",
     "next-pwa": "^5.6.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "reading-time": "^1.5.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.54.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

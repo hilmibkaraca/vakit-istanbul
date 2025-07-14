@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { ISTANBUL_DISTRICTS } from '@/lib/constants';
+import { getBlogPosts } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://vakit.istanbul';
@@ -53,6 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
     }
   ];
 
@@ -81,9 +88,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Blog pages
+  const blogPosts = getBlogPosts();
+  const blogPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...districtPages,
-    ...calendarPages
+    ...calendarPages,
+    ...blogPages
   ];
 }

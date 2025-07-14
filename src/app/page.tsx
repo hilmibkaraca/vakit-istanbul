@@ -152,7 +152,7 @@ export default function Home() {
       {/* Header Banner Ad */}
       <div className="max-w-6xl mx-auto px-4 py-2">
         <div className="flex justify-center">
-          <BannerAd adSlot="1234567890" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
+          <BannerAd adSlot="home-header-banner" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
         </div>
       </div>
 
@@ -264,7 +264,7 @@ export default function Home() {
         )}
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
           <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
             <span className="text-2xl">🧭</span>
             <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Kıble Yönü</span>
@@ -274,11 +274,140 @@ export default function Home() {
             <span className="text-2xl">📅</span>
             <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">İmsakiye</span>
           </a>
+
+          <a href="/blog" className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
+            <span className="text-2xl">📖</span>
+            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Blog</span>
+          </a>
+        </div>
+
+        {/* Blog Section */}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-islamic-800 dark:text-islamic-100 mb-4">
+              Namaz ve İbadet Rehberimiz
+            </h2>
+            <p className="text-islamic-600 dark:text-islamic-300 max-w-2xl mx-auto">
+              İslami ibadet hayatınızı kolaylaştıracak kapsamlı rehberler, güncel bilgiler ve pratik tavsiyeler
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {/* Featured Blog Posts */}
+            <a href="/blog/sabah-namazi-saat-kacta" className="group block bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200 overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🌅</span>
+                  <span className="text-xs bg-islamic-100 dark:bg-islamic-800 text-islamic-600 dark:text-islamic-300 px-2 py-1 rounded-full">
+                    Namaz Vakitleri
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 mb-2">
+                  Sabah Namazı Saat Kaçta?
+                </h3>
+                <p className="text-sm text-islamic-600 dark:text-islamic-300 leading-relaxed">
+                  İstanbul'da sabah namazı vakitleri, tüm ilçeler için güncel saatler ve pratik öneriler.
+                </p>
+              </div>
+            </a>
+
+            <a href="/blog/cuma-namazi-vakti-istanbul" className="group block bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200 overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🕌</span>
+                  <span className="text-xs bg-gold-100 dark:bg-gold-900/30 text-gold-600 dark:text-gold-400 px-2 py-1 rounded-full">
+                    Cuma Namazı
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 mb-2">
+                  Cuma Namazı Rehberi
+                </h3>
+                <p className="text-sm text-islamic-600 dark:text-islamic-300 leading-relaxed">
+                  İstanbul'da cuma namazı saatleri, popüler camiler ve bilinmesi gerekenler.
+                </p>
+              </div>
+            </a>
+
+            <a href="/blog/namaz-vakti-gecince-ne-yapilir" className="group block bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200 overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">⏰</span>
+                  <span className="text-xs bg-sage-100 dark:bg-sage-900/30 text-sage-600 dark:text-sage-400 px-2 py-1 rounded-full">
+                    Kaza Namazı
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 mb-2">
+                  Namaz Vakti Geçince Ne Yapılır?
+                </h3>
+                <p className="text-sm text-islamic-600 dark:text-islamic-300 leading-relaxed">
+                  Kaza namazı nasıl kılınır, hangi durumlarda namaz kazaya kalır rehberi.
+                </p>
+              </div>
+            </a>
+
+            <a href="/blog/iftar-vakti-hesaplama-2025" className="group block bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200 overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🌙</span>
+                  <span className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-2 py-1 rounded-full">
+                    Ramazan
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 mb-2">
+                  İftar Vakti Hesaplama 2025
+                </h3>
+                <p className="text-sm text-islamic-600 dark:text-islamic-300 leading-relaxed">
+                  2025 Ramazan ayı İstanbul iftar vakitleri, sahur saatleri ve oruç rehberi.
+                </p>
+              </div>
+            </a>
+
+            <a href="/blog/iste-namaz-kilmak-icin-izin-hakkiniz" className="group block bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200 overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">⚖️</span>
+                  <span className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full">
+                    Yasal Haklar
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 mb-2">
+                  İşte Namaz İzin Hakkınız
+                </h3>
+                <p className="text-sm text-islamic-600 dark:text-islamic-300 leading-relaxed">
+                  Çalışanların namaz kılmak için izin hakları ve yasal düzenlemeler.
+                </p>
+              </div>
+            </a>
+
+            <a href="/blog/yolculukta-namaz-rehberi" className="group block bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200 overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">✈️</span>
+                  <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-2 py-1 rounded-full">
+                    Seyahat
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 mb-2">
+                  Yolculukta Namaz Rehberi
+                </h3>
+                <p className="text-sm text-islamic-600 dark:text-islamic-300 leading-relaxed">
+                  Seferî namaz, birleştirme kuralları ve yolculuk halinde ibadet.
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div className="text-center">
+            <a href="/blog" className="inline-flex items-center space-x-2 px-6 py-3 bg-islamic-gradient text-white rounded-xl2 hover:shadow-lg transition-all duration-200 font-medium">
+              <span>Tüm Blog Yazılarını Görüntüle</span>
+              <span>→</span>
+            </a>
+          </div>
         </div>
 
         {/* Mid-page Responsive Ad */}
         <div className="my-12 flex justify-center">
-          <ResponsiveAd adSlot="0987654321" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+          <ResponsiveAd adSlot="home-mid-responsive" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
         </div>
 
         {/* Bilgi Bölümü */}
@@ -334,7 +463,7 @@ export default function Home() {
       {/* Footer Banner Ad */}
       <div className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex justify-center">
-          <BannerAd adSlot="5678901234" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
+          <BannerAd adSlot="home-footer-banner" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
         </div>
       </div>
 
