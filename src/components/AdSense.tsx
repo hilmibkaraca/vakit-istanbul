@@ -22,7 +22,7 @@ export default function AdSense({
   style = {},
   className = ''
 }: AdSenseProps) {
-  const adRef = useRef<HTMLElement>(null);
+  const adRef = useRef<HTMLModElement>(null);
   const isLoadedRef = useRef(false);
 
   useEffect(() => {
