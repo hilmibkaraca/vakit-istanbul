@@ -129,7 +129,7 @@ export default function Home() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-islamic-800 dark:text-islamic-100">
-                  Vakit İstanbul
+                  Vakit
                 </h1>
                 <p className="text-sm text-islamic-600 dark:text-islamic-300">
                   {format(currentTime, 'dd MMMM yyyy, EEEE', { locale: tr })}
@@ -246,7 +246,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* Hijri Date Card */}
+        {/* Date Card */}
         {prayerTimes && (
           <div className="max-w-md mx-auto mb-8">
             <div className="geometric-border bg-white/80 dark:bg-islamic-900/60 backdrop-blur-sm rounded-2xl2 p-6 text-center">
@@ -254,22 +254,20 @@ export default function Home() {
                 <div className="w-8 h-8 bg-gold-500 crescent opacity-80"></div>
               </div>
               <h3 className="text-lg font-semibold text-islamic-800 dark:text-islamic-100 mb-2">
-                Hicri Tarih
+                Tarih
               </h3>
-              <p className="text-gold-600 dark:text-gold-400 font-medium arabic-text text-lg">
+              <p className="text-gold-600 dark:text-gold-400 font-medium text-lg mb-2">
                 {prayerTimes.hijriDate}
+              </p>
+              <p className="text-islamic-600 dark:text-islamic-400 text-sm">
+                {format(new Date(), 'dd MMMM yyyy', { locale: tr })}
               </p>
             </div>
           </div>
         )}
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <button className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
-            <span className="text-2xl">🧭</span>
-            <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">Kıble Yönü</span>
-          </button>
-          
+        <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
           <a href="/imsakiye" className="flex flex-col items-center space-y-2 p-4 bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 hover:bg-islamic-50 dark:hover:bg-islamic-900/60 transition-all duration-200">
             <span className="text-2xl">📅</span>
             <span className="text-sm font-medium text-islamic-700 dark:text-islamic-300">İmsakiye</span>
@@ -474,7 +472,7 @@ export default function Home() {
             <div className="flex items-center justify-center space-x-2 mb-4">
               <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
               <span className="text-lg font-semibold text-islamic-800 dark:text-islamic-100">
-                Vakit İstanbul
+                Vakit
               </span>
             </div>
             <p className="text-sm text-islamic-600 dark:text-islamic-400 mb-4">
@@ -492,7 +490,7 @@ export default function Home() {
               </a>
             </div>
             <div className="text-xs text-islamic-500 dark:text-islamic-500 mt-4">
-              © 2024 Vakit İstanbul. Tüm hakları saklıdır.
+              © 2024 Vakit. Tüm hakları saklıdır.
             </div>
           </div>
         </div>

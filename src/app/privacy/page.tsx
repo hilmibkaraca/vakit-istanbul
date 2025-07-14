@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Gizlilik Politikası - Vakit İstanbul',
-  description: 'Vakit İstanbul uygulamasının gizlilik politikası ve kişisel veriler hakkında bilgiler.',
+  title: 'Gizlilik Politikası - Vakit',
+  description: 'Vakit uygulamasının gizlilik politikası ve kişisel veriler hakkında bilgiler.',
   robots: 'index, follow',
 };
 
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
                 1. Genel Bilgiler
               </h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Vakit İstanbul olarak, kullanıcılarımızın gizliliğini korumaya büyük önem veriyoruz. 
+                Vakit olarak, kullanıcılarımızın gizliliğini korumaya büyük önem veriyoruz. 
                 Bu gizlilik politikası, uygulamamızı kullanırken hangi bilgilerin toplandığını, 
                 nasıl kullanıldığını ve korunduğunu açıklamaktadır.
               </p>

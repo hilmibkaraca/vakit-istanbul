@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'İletişim - Vakit İstanbul',
-  description: 'Vakit İstanbul ile iletişime geçin. Geri bildirimlerinizi ve önerilerinizi bizimle paylaşın.',
+  title: 'İletişim - Vakit',
+  description: 'Vakit ile iletişime geçin. Geri bildirimlerinizi ve önerilerinizi bizimle paylaşın.',
   robots: 'index, follow',
 };
 

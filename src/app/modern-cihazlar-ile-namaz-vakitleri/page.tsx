@@ -5,15 +5,15 @@ import ThemeToggle from '@/components/ThemeToggle';
 import { ResponsiveAd, SquareAd } from '@/components/AdSense';
 
 export const metadata: Metadata = {
-  title: 'Modern Astronomik Cihazlar ile Namaz Vakitleri Belirleme | Vakit İstanbul',
+  title: 'Modern Astronomik Cihazlar ile Namaz Vakitleri Belirleme | Vakit',
   description: 'Modern astronomik gözlem cihazları (DSLR kamera, CCD dedektör, ASC sistemleri) ile İslami ibadet vakitlerinin hassas belirlenmesi ve bilimsel gözlemler.',
   keywords: 'astronomik gözlem, CCD dedektör, DSLR kamera, ASC sistem, fotometrik gözlem, fecr-i sadık, güneş ufuk açısı, DİBRed yazılım, Diyanet gözlem',
-  authors: [{ name: 'Vakit İstanbul' }],
+  authors: [{ name: 'Vakit' }],
   openGraph: {
-    title: 'Modern Astronomik Cihazlar ile Namaz Vakitleri | Vakit İstanbul',
+    title: 'Modern Astronomik Cihazlar ile Namaz Vakitleri | Vakit',
     description: 'Modern teknoloji ile İslami ibadet vakitlerinin hassas belirlenmesi ve bilimsel gözlem yöntemleri',
     url: 'https://vakit.istanbul/modern-cihazlar-ile-namaz-vakitleri',
-    siteName: 'Vakit İstanbul',
+    siteName: 'Vakit',
     locale: 'tr_TR',
     type: 'article',
   }
@@ -34,7 +34,7 @@ export default function ModernCihazlarPage() {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors">
-                    Vakit İstanbul
+                    Vakit
                   </h1>
                   <p className="text-sm text-islamic-600 dark:text-islamic-300">
                     Modern Astronomik Cihazlar
@@ -581,11 +581,11 @@ export default function ModernCihazlarPage() {
             <Link href="/" className="inline-flex items-center space-x-2 mb-4 hover:text-islamic-600 dark:hover:text-islamic-300 transition-colors">
               <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
               <span className="text-lg font-semibold text-islamic-800 dark:text-islamic-100">
-                Vakit İstanbul
+                Vakit
               </span>
             </Link>
             <p className="text-sm text-islamic-600 dark:text-islamic-400">
-              © 2024 Vakit İstanbul. Tüm hakları saklıdır.
+              © 2024 Vakit. Tüm hakları saklıdır.
             </p>
           </div>
         </div>

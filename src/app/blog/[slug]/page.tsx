@@ -1,5 +1,6 @@
 import { getPostBySlug, getAllPosts } from '@/lib/blog'
 import MiniVakitWidget from '@/components/MiniVakitWidget'
+import BlogSidebarWidget from '@/components/BlogSidebarWidget'
 import ThemeToggle from '@/components/ThemeToggle'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) return {}
   
   return {
-    title: `${post.title} | Vakit İstanbul`,
+    title: `${post.title} | Vakit`,
     description: post.description,
     keywords: post.keywords.join(', '),
     openGraph: {
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       type: 'article',
       publishedTime: post.date,
       url: `https://vakit.istanbul/blog/${post.slug}`,
-      siteName: 'Vakit İstanbul',
+      siteName: 'Vakit',
     },
     twitter: {
       card: 'summary_large_image',
@@ -56,7 +57,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                   <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
                 </div>
                 <span className="text-2xl font-bold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors">
-                  Vakit İstanbul
+                  Vakit
                 </span>
               </Link>
               <div className="flex items-center gap-6">
@@ -84,8 +85,15 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </div>
         
         {/* İçerik */}
-        <main className="max-w-5xl mx-auto px-4 pb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <main className="max-w-6xl mx-auto px-4 pb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            {/* Sidebar with Prayer Times */}
+            <aside className="lg:col-span-1 space-y-6">
+              <div className="sticky top-24">
+                <BlogSidebarWidget />
+              </div>
+            </aside>
+
             {/* Article Content */}
             <article className="lg:col-span-3 bg-white/80 dark:bg-islamic-900/60 backdrop-blur-sm rounded-xl2 border border-islamic-200 dark:border-islamic-700 p-8">
               <header className="mb-8">

@@ -5,15 +5,15 @@ import ThemeToggle from '@/components/ThemeToggle';
 import { ResponsiveAd, SquareAd } from '@/components/AdSense';
 
 export const metadata: Metadata = {
-  title: 'Namaz Vakitleri Nasıl Belirlenir? | Vakit İstanbul',
+  title: 'Namaz Vakitleri Nasıl Belirlenir? | Vakit',
   description: 'İslam dininde namaz vakitlerinin tarihçesi, hesaplama yöntemleri ve Diyanet İşleri Başkanlığı ile diğer kurumların farklı yaklaşımları hakkında detaylı bilgi.',
   keywords: 'namaz vakitleri, güneş açısı, Diyanet namaz vakitleri, imsak vakti hesaplama, fecir, şafak, İslam astronomisi, ilm-i mikât',
-  authors: [{ name: 'Vakit İstanbul' }],
+  authors: [{ name: 'Vakit' }],
   openGraph: {
-    title: 'Namaz Vakitleri Nasıl Belirlenir? | Vakit İstanbul',
+    title: 'Namaz Vakitleri Nasıl Belirlenir? | Vakit',
     description: 'İslam dininde namaz vakitlerinin tarihçesi, hesaplama yöntemleri ve farklı kurumların yaklaşımları',
     url: 'https://vakit.istanbul/namaz-vakitleri-nasil-belirlenir',
-    siteName: 'Vakit İstanbul',
+    siteName: 'Vakit',
     locale: 'tr_TR',
     type: 'article',
   }
@@ -34,7 +34,7 @@ export default function NamazVakitleriBilgiPage() {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors">
-                    Vakit İstanbul
+                    Vakit
                   </h1>
                   <p className="text-sm text-islamic-600 dark:text-islamic-300">
                     Namaz Vakitleri Bilgi
@@ -342,7 +342,7 @@ export default function NamazVakitleriBilgiPage() {
                   Her kurum kendi metodolojisini geliştirmiş ve bunu ilmi gerekçelerle desteklemiştir.
                 </p>
                 <p>
-                  <strong>Vakit İstanbul</strong> olarak, Diyanet İşleri Başkanlığı'nın hesaplama yöntemini kullanmaktayız. 
+                  <strong>Vakit</strong> olarak, Diyanet İşleri Başkanlığı'nın hesaplama yöntemini kullanmaktayız. 
                   Bu tercihimizin nedenleri:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
@@ -399,11 +399,11 @@ export default function NamazVakitleriBilgiPage() {
             <Link href="/" className="inline-flex items-center space-x-2 mb-4 hover:text-islamic-600 dark:hover:text-islamic-300 transition-colors">
               <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
               <span className="text-lg font-semibold text-islamic-800 dark:text-islamic-100">
-                Vakit İstanbul
+                Vakit
               </span>
             </Link>
             <p className="text-sm text-islamic-600 dark:text-islamic-400">
-              © 2024 Vakit İstanbul. Tüm hakları saklıdır.
+              © 2024 Vakit. Tüm hakları saklıdır.
             </p>
           </div>
         </div>

@@ -86,7 +86,7 @@ export default function ImsakiyePage() {
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors">
-                    Vakit İstanbul
+                    Vakit
                   </h1>
                   <p className="text-sm text-islamic-600 dark:text-islamic-300">
                     İmsakiye

@@ -1,10 +1,11 @@
 import { getAllPosts } from '@/lib/blog'
 import BlogCard from '@/components/BlogCard'
+import BlogSidebarWidget from '@/components/BlogSidebarWidget'
 import Link from 'next/link'
 import ThemeToggle from '@/components/ThemeToggle'
 
 export const metadata = {
-  title: 'Namaz Rehberi ve Bilgi Yazıları - Vakit İstanbul',
+  title: 'Namaz Rehberi ve Bilgi Yazıları - Vakit',
   description: 'Namaz vakitleri, ibadet rehberleri ve dini bilgiler hakkında faydalı yazılar. İstanbul namaz vakitleri ve İslami bilgiler.',
   keywords: 'namaz rehberi, namaz vakitleri, dini bilgiler, İslami rehber, namaz kılma, ibadet rehberi',
 }
@@ -23,7 +24,7 @@ export default function BlogPage() {
                 <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
               </div>
               <span className="text-2xl font-bold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors">
-                Vakit İstanbul
+                Vakit
               </span>
             </Link>
             <div className="flex items-center gap-6">
@@ -48,10 +49,22 @@ export default function BlogPage() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Sidebar with Prayer Times */}
+          <aside className="lg:col-span-1">
+            <div className="sticky top-24">
+              <BlogSidebarWidget />
+            </div>
+          </aside>
+          
+          {/* Blog Posts Grid */}
+          <div className="lg:col-span-3">
+            <div className="grid md:grid-cols-2 gap-6">
+              {posts.map((post) => (
+                <BlogCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </div>
         </div>
         
         {posts.length === 0 && (
@@ -70,11 +83,11 @@ export default function BlogPage() {
             <Link href="/" className="inline-flex items-center space-x-2 mb-4 hover:text-islamic-600 dark:hover:text-islamic-300 transition-colors">
               <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
               <span className="text-lg font-semibold text-islamic-800 dark:text-islamic-100">
-                Vakit İstanbul
+                Vakit
               </span>
             </Link>
             <p className="text-sm text-islamic-600 dark:text-islamic-400">
-              © 2025 Vakit İstanbul. Tüm hakları saklıdır.
+              © 2025 Vakit. Tüm hakları saklıdır.
             </p>
           </div>
         </div>

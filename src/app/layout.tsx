@@ -8,10 +8,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Vakit İstanbul - Namaz Vakitleri",
+  title: "Vakit - Namaz Vakitleri",
   description: "İstanbul namaz vakitleri, ezan saatleri ve kıble yönü. Güncel namaz vakitleri ile İstanbul'un 39 ilçesi için hassas vakit bilgileri.",
   keywords: "namaz vakitleri istanbul, ezan vakti, prayer times istanbul, istanbul namaz saatleri, sabah öğle ikindi akşam yatsı",
-  authors: [{ name: "Vakit İstanbul" }],
+  authors: [{ name: "Vakit" }],
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Vakit İstanbul",
+    title: "Vakit",
   },
   icons: {
     icon: [
@@ -37,16 +37,16 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Vakit İstanbul - Namaz Vakitleri",
+    title: "Vakit - Namaz Vakitleri",
     description: "İstanbul namaz vakitleri, ezan saatleri ve kıble yönü",
     url: "https://vakit.istanbul",
-    siteName: "Vakit İstanbul",
+    siteName: "Vakit",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Vakit İstanbul - Namaz Vakitleri",
+        alt: "Vakit - Namaz Vakitleri",
       },
     ],
     locale: "tr_TR",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vakit İstanbul - Namaz Vakitleri",
+    title: "Vakit - Namaz Vakitleri",
     description: "İstanbul namaz vakitleri, ezan saatleri ve kıble yönü",
     images: ["/og-image.png"],
   },
@@ -104,13 +104,13 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Vakit İstanbul",
+              name: "Vakit",
               url: "https://vakit.istanbul",
               description: "İstanbul namaz vakitleri, ezan saatleri ve kıble yönü",
               inLanguage: "tr-TR",
               author: {
                 "@type": "Organization",
-                name: "Vakit İstanbul"
+                name: "Vakit"
               }
             }),
           }}
