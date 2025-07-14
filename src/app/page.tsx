@@ -306,7 +306,7 @@ export default function Home() {
                   Sabah Namazı Saat Kaçta?
                 </h3>
                 <p className="text-sm text-islamic-600 dark:text-islamic-300 leading-relaxed">
-                  İstanbul'da sabah namazı vakitleri, tüm ilçeler için güncel saatler ve pratik öneriler.
+                  İstanbul&apos;da sabah namazı vakitleri, tüm ilçeler için güncel saatler ve pratik öneriler.
                 </p>
               </div>
             </a>
@@ -323,7 +323,7 @@ export default function Home() {
                   Cuma Namazı Rehberi
                 </h3>
                 <p className="text-sm text-islamic-600 dark:text-islamic-300 leading-relaxed">
-                  İstanbul'da cuma namazı saatleri, popüler camiler ve bilinmesi gerekenler.
+                  İstanbul&apos;da cuma namazı saatleri, popüler camiler ve bilinmesi gerekenler.
                 </p>
               </div>
             </a>

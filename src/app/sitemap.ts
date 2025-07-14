@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { ISTANBUL_DISTRICTS } from '@/lib/constants';
-import { getBlogPosts } from '@/lib/blog';
+import { getAllPosts } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://vakit.istanbul';
@@ -89,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Blog pages
-  const blogPosts = getBlogPosts();
+  const blogPosts = getAllPosts();
   const blogPages = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),

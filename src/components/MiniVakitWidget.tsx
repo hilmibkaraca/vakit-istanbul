@@ -1,10 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 
 export default function MiniVakitWidget() {
   const [isExpanded, setIsExpanded] = useState(false)
-  const [currentTime, setCurrentTime] = useState(new Date())
   
   // Örnek vakitler - gerçek API'den gelecek
   const vakitler = {
@@ -15,11 +14,6 @@ export default function MiniVakitWidget() {
     aksam: '17:30',
     yatsi: '19:00'
   }
-  
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000)
-    return () => clearInterval(timer)
-  }, [])
   
   return (
     <div className="fixed bottom-4 right-4 z-50 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-gray-200 transition-all duration-300">
