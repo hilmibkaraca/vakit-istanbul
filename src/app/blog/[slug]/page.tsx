@@ -53,11 +53,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           <div className="max-w-7xl mx-auto px-4 py-4">
             <nav className="flex items-center justify-between">
               <Link href="/" className="flex items-center space-x-3 group">
-                <div className="w-10 h-10 bg-islamic-gradient rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
-                </div>
-                <span className="text-2xl font-bold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors">
-                  Vakit
+                <span className="text-3xl font-normal text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors" style={{fontFamily: 'Helvetica, Arial, sans-serif'}}>
+                  vakit
                 </span>
               </Link>
               <div className="flex items-center gap-6">

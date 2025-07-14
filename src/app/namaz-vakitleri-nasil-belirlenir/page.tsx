@@ -29,9 +29,9 @@ export default function NamazVakitleriBilgiPage() {
             {/* Logo & Title */}
             <div className="flex items-center space-x-4">
               <Link href="/" className="flex items-center space-x-3 group">
-                <div className="w-10 h-10 bg-islamic-gradient rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
-                </div>
+                <span className="text-3xl font-normal text-islamic-800 dark:text-islamic-100" style={{fontFamily: 'Helvetica, Arial, sans-serif'}}>
+                  vakit
+                </span>
                 <div>
                   <h1 className="text-2xl font-bold text-islamic-800 dark:text-islamic-100 group-hover:text-islamic-600 dark:group-hover:text-islamic-300 transition-colors">
                     Vakit
@@ -397,7 +397,9 @@ export default function NamazVakitleriBilgiPage() {
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="text-center">
             <Link href="/" className="inline-flex items-center space-x-2 mb-4 hover:text-islamic-600 dark:hover:text-islamic-300 transition-colors">
-              <div className="w-6 h-6 bg-islamic-600 islamic-star"></div>
+              <span className="text-2xl font-normal text-islamic-800 dark:text-islamic-100" style={{fontFamily: 'Helvetica, Arial, sans-serif'}}>
+                vakit
+              </span>
               <span className="text-lg font-semibold text-islamic-800 dark:text-islamic-100">
                 Vakit
               </span>
