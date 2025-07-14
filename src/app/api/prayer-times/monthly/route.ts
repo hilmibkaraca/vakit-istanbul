@@ -78,9 +78,9 @@ async function fetchMonthlyPrayerTimes(year: number, month: number): Promise<Dai
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const year = parseInt(searchParams.get('year') || String(new Date().getFullYear()));
-    const month = parseInt(searchParams.get('month') || String(new Date().getMonth() + 1));
+    const url = new URL(request.nextUrl);
+    const year = parseInt(url.searchParams.get('year') || String(new Date().getFullYear()));
+    const month = parseInt(url.searchParams.get('month') || String(new Date().getMonth() + 1));
     
     // Validate year and month
     if (year < 2000 || year > 2100 || month < 1 || month > 12) {

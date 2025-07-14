@@ -133,9 +133,9 @@ async function fetchPrayerTimes(): Promise<PrayerTimes> {
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const url = new URL(request.nextUrl);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const district = searchParams.get('district') || 'ISTANBUL';
+    const district = url.searchParams.get('district') || 'ISTANBUL';
     
     // For now, we'll use Istanbul coordinates regardless of district
     // In future, we can add district-specific coordinates
