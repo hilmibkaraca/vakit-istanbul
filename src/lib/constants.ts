@@ -60,12 +60,12 @@ export const PRAYER_NAMES = {
 };
 
 export const PRAYER_ICONS = {
-  fajr: '🌅',
-  sunrise: '☀️',
-  dhuhr: '🌞',
-  asr: '🌤️',
-  maghrib: '🌆',
-  isha: '🌙'
+  fajr: '',
+  sunrise: '',
+  dhuhr: '',
+  asr: '',
+  maghrib: '',
+  isha: ''
 };
 
 export const ADSENSE_SLOTS = {
