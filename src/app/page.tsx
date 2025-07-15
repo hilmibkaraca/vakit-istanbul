@@ -8,6 +8,7 @@ import { PRAYER_NAMES, PRAYER_ICONS } from '@/lib/constants';
 import ThemeToggle from '@/components/ThemeToggle';
 import DistrictSelector from '@/components/DistrictSelector';
 import { BannerAd, ResponsiveAd } from '@/components/AdSense';
+import { ADSENSE_SLOTS } from '@/lib/constants';
 
 export default function Home() {
   const [prayerTimes, setPrayerTimes] = useState<PrayerTimes | null>(null);
@@ -149,7 +150,7 @@ export default function Home() {
       {/* Header Banner Ad */}
       <div className="max-w-6xl mx-auto px-4 py-2">
         <div className="flex justify-center">
-          <BannerAd adSlot="home-header-banner" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
+          <BannerAd adSlot={ADSENSE_SLOTS.HEADER_BANNER} className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
         </div>
       </div>
 
@@ -402,7 +403,7 @@ export default function Home() {
 
         {/* Mid-page Responsive Ad */}
         <div className="my-12 flex justify-center">
-          <ResponsiveAd adSlot="home-mid-responsive" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
+          <ResponsiveAd adSlot={ADSENSE_SLOTS.RESPONSIVE} className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden bg-white/60 dark:bg-islamic-900/40 backdrop-blur-sm" />
         </div>
 
       </main>
@@ -410,7 +411,7 @@ export default function Home() {
       {/* Footer Banner Ad */}
       <div className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex justify-center">
-          <BannerAd adSlot="home-footer-banner" className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
+          <BannerAd adSlot={ADSENSE_SLOTS.FOOTER_BANNER} className="border border-islamic-200 dark:border-islamic-700 rounded-xl2 overflow-hidden" />
         </div>
       </div>
 

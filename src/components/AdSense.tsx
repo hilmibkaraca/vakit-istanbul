@@ -57,7 +57,7 @@ export default function AdSense({
   }, []);
 
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-7529069132633488';
-  const isDevelopment = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
+  const isDevelopment = process.env.NODE_ENV === 'development';
   
   if (!clientId) {
     return null;
