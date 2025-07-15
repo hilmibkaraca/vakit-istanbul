@@ -84,8 +84,17 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7529069132633488"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
+        <Script id="adsense-auto-ads" strategy="beforeInteractive">
+          {`
+            window.adsbygoogle = window.adsbygoogle || [];
+            adsbygoogle.push({
+              google_ad_client: "ca-pub-7529069132633488",
+              enable_page_level_ads: true
+            });
+          `}
+        </Script>
         <Script id="gtag-base" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
